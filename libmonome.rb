@@ -1,5 +1,8 @@
 require 'formula'
 
+# This Forumala is still pretty janky... it cannot without being run as "brew install -vd --HEAD libmonome"
+# Without causing ld errors... hopefully this can be fixed
+
 class Libmonome < Formula
   head 'https://github.com/TheAlphaNerd/libmonome.git'
   homepage 'http://monome.org'
