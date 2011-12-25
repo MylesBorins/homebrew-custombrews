@@ -1,8 +1,5 @@
 require 'formula'
 
-# This Forumala is still pretty janky... it cannot without being run as "brew install -vd --HEAD libmonome"
-# Without causing ld errors... hopefully this can be fixed
-
 class Libmonome < Formula
   head 'https://github.com/TheAlphaNerd/libmonome.git'
   homepage 'http://monome.org'
@@ -11,11 +8,11 @@ class Libmonome < Formula
   depends_on 'liblo'
   
   def install
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    system "mkdir #{prefix}/lib"
+    system "mkdir #{prefix}/lib/pkgconfig"
+    system "./configure", "--prefix=#{prefix}"
     system "make"
     system "make install"
   end
 
 end
-
-
