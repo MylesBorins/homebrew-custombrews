@@ -4,7 +4,7 @@ class LibusbFreenect <Formula
   url 'http://git.libusb.org/?p=libusb.git;a=snapshot;h=7da756e09fd97efad2b35b5cee0e2b2550aac2cb;sf=tgz;js=1'
   homepage 'http://www.libusb.org/'
   version "7da756e09fd97efad2b3"
-  md5 ''
+  md5 'c39ab0f38addc2bd3a2aafbcabcfb58f'
   def patches
     # patches libusb to work with libfreenect
     "https://github.com/OpenKinect/libfreenect/raw/master/platform/osx/libusb-osx-kinect.diff"
