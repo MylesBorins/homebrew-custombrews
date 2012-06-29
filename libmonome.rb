@@ -10,9 +10,9 @@ class Libmonome < Formula
   def install
     system "mkdir #{prefix}/lib"
     system "mkdir #{prefix}/lib/pkgconfig"
-    system "./configure", "--prefix=#{prefix}"
-    system "make"
-    system "make install"
+    system "./waf configure --prefix=#{prefix}"
+    system "./waf build"
+    system "./waf install"
   end
 
 end
