@@ -10,8 +10,8 @@ class Serialosc < Formula
 
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
-    system "make install"
+    system "./waf configure --prefix=#{prefix}"
+    system "./waf build"
+    system "./waf install"
   end
 end
