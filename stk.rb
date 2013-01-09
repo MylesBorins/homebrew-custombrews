@@ -6,7 +6,8 @@ class Stk < Formula
   sha1 '2a94f02ed054d3b991352cc68a85a0a8063e3a4b'
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
+    inreplace 'configure', 'CFLAGS="-g -O2"', 'CFLAGS="-g -O0"'
+    system "./configure", "--enable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
 
     system "make"
