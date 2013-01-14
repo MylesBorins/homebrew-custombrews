@@ -1,15 +1,20 @@
 require 'formula'
 
 class Libmonome < Formula
-  url 'https://github.com/monome/libmonome/tarball/1.2'
-  head 'https://github.com/monome/libmonome.git'
   homepage 'http://illest.net/libmonome/'
-  md5 'aae0db94dd3cb0358f76e52089292b49'
-  version '1.2'
+  url 'https://github.com/monome/libmonome/tarball/1.2'
+  sha1 '91ed3f7246e2f9462ff43c257fae5e34006a4c85'
+
+  head 'https://github.com/monome/libmonome.git'
+
   depends_on 'liblo'
 
+  fails_with :clang do
+    build 421
+    cause 'waf fails to find g++ when compiling with clang'
+  end
+
   def install
-    ENV['CC'] = '/usr/bin/gcc'
     system "./waf configure --prefix=#{prefix}"
     system "./waf build"
     system "./waf install"
